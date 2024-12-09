@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect } from "react"
+import s from "./App.module.css"
+import Aside from "./component/Aside/Aside";
+import LearnContainer from "./component/Learn/LearnContainer";
+import { v4 as uuidv4 } from 'uuid';
+import AsideContainer from "./component/Aside/AsideContainer";
+import { Route, Routes } from "react-router-dom";
+import DialogContainer from "./component/Dialog/DialogContainer";
+import Home from "./component/Home/Home";
+import { getHistoryDialogs, setHistory_id } from "./redux/reducers/DIalogsReducer";
+import { connect } from "react-redux";
+function App(props) {
+   useEffect(() => {
+    let history_id = localStorage.getItem('history_id');
+      if (!history_id){
+        let history_id = uuidv4(); // функция для генерации UUID
+        localStorage.setItem('history_id', history_id);
+      }
+      props.setHistory_id(history_id)
+      props.getHistoryDialogs(history_id)
+   },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.App}>
+      <AsideContainer />
+      <Routes>
+      <Route path="/" element={<LearnContainer/>}/>
+      <Route path="/dialog/:id?" element={<DialogContainer/>}/>
+      <Route path="/home" element={<Home/>}/>
+      
+      </Routes>
     </div>
   );
 }
-
-export default App;
+const mapStateToProps = (state) => ({
+  historyId:state.dialogs.history_id
+})
+export default connect(mapStateToProps,{getHistoryDialogs,setHistory_id})(App);

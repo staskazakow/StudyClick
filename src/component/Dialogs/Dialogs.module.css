@@ -1,0 +1,23 @@
+.dialog{
+    width: 90%;
+    height: 10%;
+    background-color: aliceblue;
+    margin: 8px 5px 0 5px;
+    transition: .5s;
+    padding: 5px 0 0 5px;
+    
+}
+.dialog:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.navigate_active{
+    color: red;
+    text-decoration: none;
+    transition: .3s;
+    font-size: 120%;
+}
+.navigate {
+    text-decoration: none;
+    color: black;
+}

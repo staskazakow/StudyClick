@@ -1,16 +1,14 @@
-import { getDialogs } from "../../API/api";
+import { deleteChat, getChat, getDialogs } from "../../API/api";
+import { Clear_chat } from "./MessageReducer";
 
 let initial_state = {
   dialogs_data: [
-    { name: "Bilogia", id: 1,},
-    { name: "russki", id: 2 },
-    { name: "math", id: 3 },
-    { name: "physique", id: 4},
+    { name: "main chat", id: 1},
   ],
   history_id: null,
   dialogs_history:[]
 };
-const SET_DIALOGS_HISTORY = "SET_DIALOGS_HISTORY"
+const DELETE_CHAT = "DELETE_CHAT"
 const SET_HISTORY_ID = "SET_HISTORY_ID"
 const ADD_DIALOGS = "ADD_DIALOGS";
 const DialogsReducer = (state = initial_state, action) => {
@@ -29,18 +27,19 @@ const DialogsReducer = (state = initial_state, action) => {
         ...state,
         history_id: action.history_id
       }
-    case SET_DIALOGS_HISTORY:
+    case DELETE_CHAT:
       return {
         ...state,
-        dialogs_history:action.dialogs
+        dialogs_data: state.dialogs_data.filter(e => e.id != action.id)
       }
+
     default:
       return state;
   }
 };
-export const setDialogsHistory = (dialogs) => ({
-  type: SET_DIALOGS_HISTORY,
-  dialogs
+export const delDialog = (id) => ({
+  type:DELETE_CHAT,
+  id
 })
 export const setHistory_id = (history_id) => ({
   type: SET_HISTORY_ID,
@@ -51,10 +50,18 @@ export const AddDialogs = (name, id) => ({
   name,
   id,
 });
+export const deleteDialog = (id) => (dispatch) => {
+  deleteChat(id)
+  dispatch(Clear_chat())
+  dispatch(delDialog(id))
+}
 export const getHistoryDialogs = (history_id) => async (dispatch) => {
   try {
     let res = await (await getDialogs(history_id)).data.session_ids
-    setDialogsHistory(res)
+    res.map(async e => {
+      let response = await getChat(e)
+      dispatch(AddDialogs(response.data.chat_title,e))
+    })
   } catch (error) {
     console.log(error)
   }

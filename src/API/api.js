@@ -16,5 +16,14 @@ export const getChat = (session_id) => {
     }})
 }
 export const getDialogs = (history_id) => {
-    return api_obj.get("api/chats",{params:{history_id}})
+    return api_obj.get("chats",{params:{history_id}})
+}
+export const getQuestions = async (id) => {
+    let res = api_obj.get("study-field/questions",{params:{field_id:id}})
+    return res
+}
+export const deleteChat = (session_id) => {
+    return api_obj.delete('chat/delete',{params:{
+        session_id
+    }})
 }

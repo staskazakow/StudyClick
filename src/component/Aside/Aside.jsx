@@ -8,7 +8,6 @@ const Aside = (props) => {
     const session_id  = uuidv4();
     props.AddDialogs("New chat", session_id)
   }
-
     return(
       <aside>
      <div className={s.side_board}>
@@ -25,7 +24,10 @@ const Aside = (props) => {
     </div>
     </div>
       <div className={s.dialogs_window}>
-      {props.dialogs.map(e => <DialogsContainer item = {e}/>)}
+      {
+        props.dialogs.length > 1 &&
+      props.dialogs.slice(1).map(e => <DialogsContainer  item = {e}/>)
+      }
       <button className={s.add_btn} onClick={() => addChat()}>Add Chat</button>
       </div>
     <div className={s.registration}>

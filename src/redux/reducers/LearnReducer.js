@@ -2,7 +2,7 @@ import { getFields } from "../../API/api"
 
 const initial_state = {
     learn_array:[],
-    current_field:{id:2,name:"",prompt:""},
+    current_field:{id:3,name:"",prompt:""},
     isFetching:false,
 }
 const SET_FIELD_ID = "SET_FIELD_ID"

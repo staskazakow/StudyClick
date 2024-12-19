@@ -22,10 +22,11 @@ function App(props) {
   return (
     <div className={s.App}>
       <AsideContainer />
+      
       <Routes>
       <Route path="/" element={<LearnContainer/>}/>
       <Route path="/dialog/:id?" element={<DialogContainer/>}/>
-      <Route path="/home" element={<Home/>}/>
+      <Route path="/" element={<Home/>}/>
       
       </Routes>
     </div>

@@ -23,7 +23,7 @@ export const getQuestions = async (id) => {
     return res
 }
 export const deleteChat = (session_id) => {
-    return api_obj.delete('chat/delete',{params:{
-        session_id
-    }})
+        return api_obj.delete('chat/delete',{params:{
+            session_id
+        }}).catch(e => console.log(e))
 }

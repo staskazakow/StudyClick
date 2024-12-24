@@ -51,9 +51,13 @@ export const AddDialogs = (name, id) => ({
   id,
 });
 export const deleteDialog = (id) => (dispatch) => {
-  deleteChat(id)
-  dispatch(Clear_chat())
-  dispatch(delDialog(id))
+  try {
+    deleteChat(id)
+    dispatch(Clear_chat())
+    dispatch(delDialog(id))
+  } catch (error) {
+    console.log(error)
+  }
 }
 export const getHistoryDialogs = (history_id) => async (dispatch) => {
   try {

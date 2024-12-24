@@ -1,6 +1,6 @@
 .dialog{
     width: 90%;
-    height: 10%;
+    height: min-content;
     background-color: aliceblue;
     margin: 8px 5px 0 5px;
     transition: .5s;

@@ -20,7 +20,11 @@ export const setPrompt = (prompt) => ({
   prompt,
 });
 export const PromptThunk = (field_id) => async (dispatch) => {
+  try {
     let res = await (await getQuestions(field_id)).data
     dispatch(setPrompt(res))
+  } catch (error) {
+    console.log(error)
+  }
 }
 export default PromptReducer

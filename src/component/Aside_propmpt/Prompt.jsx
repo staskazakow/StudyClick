@@ -10,8 +10,9 @@ const Prompt = (props) => {
         );  
   }
     return(
-        <div className={s.prompt_block}>
-        <div className={s.prompt_item} onClick={sendMessage}>{props.item.example}</div>
+        <div >
+          <li class="list-group-item" onClick={sendMessage}>{props.item.example}</li>
+        {/* <div className={s.prompt_item} onClick={sendMessage}></div> */}
         </div>
     )
 }

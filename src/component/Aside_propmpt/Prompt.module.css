@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 .prompt_item{
-    font-size: 20px;
+    font-size: 12px;
 }
 .prompt_item:hover{
     cursor: pointer;

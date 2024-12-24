@@ -1,11 +1,14 @@
 
 .side_board{
     height: 100vh;
-    background-color: rgb(169, 182, 182);
-    width: 100%;
+    background: linear-gradient(70deg, rgb(69, 51, 81), rgb(91, 57, 62));
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+aside {
+    display: contents;
 }
 .btn_block{
     display: flex;
@@ -28,9 +31,9 @@
     flex-direction: column;
 }
 .logo{
-    width: 60% ;
-    height: 60% ;
-    border-radius: 30%;
+    width: 40% ;
+    height: 50% ;
+    border-radius: 50%;
     margin-left: 20px;
     margin-top: 20px;
 }
@@ -46,6 +49,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     overflow: scroll;
+    overflow-x: hidden;
 }
 .dialogs{
     height: 100%;
@@ -53,7 +57,9 @@
     justify-content: center;
 }
 .dialogs_name{
-    font-size: 200%;
+    font-size: 160%;
+    color: #c3bdbd;
+    font-weight: 700;
 }
 .add_btn{
     width: 90%;

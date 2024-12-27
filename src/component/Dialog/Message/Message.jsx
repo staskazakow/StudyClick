@@ -13,9 +13,18 @@ const Message = (props) => {
 
         <div>{props.item.role}</div>
       </div>
+      {props.item.role == "bot" ? 
       <div className={s.ai_text_block}>
-        <div>{props.item.message}</div>
-      </div>
+      <div className={s.message_text}>
+        {props.item.message}
+    </div>
+    </div>
+    :
+    <div className={s.user_text_block}>
+        <div className={s.message_text}>
+          {props.item.message}
+      </div>  
+    </div>}
     </div>
   );
 };

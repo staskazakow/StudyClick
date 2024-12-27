@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import s from "./Learn.module.css";
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
-const Learn = ({ getCurrentFields, learn, setFieldId, AddDialogs }) => {
+const Learn = ({ getCurrentFields, learn, setFieldId, AddDialogs,setId }) => {
   const watchingLearn = () => {
     getCurrentFields();
   };
@@ -10,6 +10,7 @@ const Learn = ({ getCurrentFields, learn, setFieldId, AddDialogs }) => {
   const onFieldCurrent = (element) => {
     setFieldId(element.id, element.name, element.prompt)
     AddDialogs("New chat", session_id)
+    setId(session_id)
   }
   return (
     <div className={s.wrapper}>

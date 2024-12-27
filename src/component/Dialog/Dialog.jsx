@@ -34,6 +34,7 @@ const Dialog = (props) => {
       setMessage("");
     }
   };
+  props.message.length == 2 && props.setTitleChat(props.session_id)
   return (
     <div className={s.dialog}>
       <div className={s.dialog_window}>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import {
   createMessage,
   getHistoryChat,
+  setTitleChat,
 } from "../../redux/reducers/MessageReducer";
 import { PromptThunk } from "../../redux/reducers/PromptReducer";
 const DialogContainer = (props) => {
@@ -18,6 +19,7 @@ const DialogContainer = (props) => {
       prompt = {props.prompt}
       PromptThunk = {props.PromptThunk}
       active = {props.active}
+      setTitleChat = {props.setTitleChat}
     />
   );
 };
@@ -29,6 +31,6 @@ const mapStateToProps = (state) => ({
   prompt: state.prompt.prompt,
   active:state.messages.messages_data.active
 });
-export default connect(mapStateToProps, { createMessage, getHistoryChat, PromptThunk })(
+export default connect(mapStateToProps, { createMessage, getHistoryChat, PromptThunk, setTitleChat })(
   DialogContainer
 );

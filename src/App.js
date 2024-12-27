@@ -7,7 +7,7 @@ import AsideContainer from "./component/Aside/AsideContainer";
 import { Route, Routes } from "react-router-dom";
 import DialogContainer from "./component/Dialog/DialogContainer";
 import Home from "./component/Home/Home";
-import { getHistoryDialogs, setHistory_id } from "./redux/reducers/DIalogsReducer";
+import { getDialogsHistoryChat, setHistory_id } from "./redux/reducers/DIalogsReducer";
 import { connect } from "react-redux";
 function App(props) {
    useEffect(() => {
@@ -16,8 +16,8 @@ function App(props) {
         let history_id = uuidv4(); // функция для генерации UUID
         localStorage.setItem('history_id', history_id);
       }
+      props.getDialogsHistoryChat(history_id)
       props.setHistory_id(history_id)
-      props.getHistoryDialogs(history_id)
    },[])
   return (
     <div className={s.App}>
@@ -35,4 +35,4 @@ function App(props) {
 const mapStateToProps = (state) => ({
   historyId:state.dialogs.history_id
 })
-export default connect(mapStateToProps,{getHistoryDialogs,setHistory_id})(App);
+export default connect(mapStateToProps,{setHistory_id,getDialogsHistoryChat})(App);

@@ -2,7 +2,6 @@ import React from "react";
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 import { createMessage, setId } from "../../redux/reducers/MessageReducer";
-import { deleteChat } from "../../API/api";
 import { deleteDialog } from "../../redux/reducers/DIalogsReducer";
 const DialogsContainer = (props) => {
     return(

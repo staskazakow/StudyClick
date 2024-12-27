@@ -27,3 +27,9 @@ export const deleteChat = (session_id) => {
             session_id
         }}).catch(e => console.log(e))
 }
+export const get_title_chat = (session_id) => {
+    return api_obj.get("chat/get_chat_title",{params:{session_id}}).catch(e => console.log(e))
+}
+export const get_titles_history = (history_id) => {
+    return api_obj.get("chat/get_chat_titles_by_history_id",{params:{history_id}}).catch(e => console.log(e))
+}

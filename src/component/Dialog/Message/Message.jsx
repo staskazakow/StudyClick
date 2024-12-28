@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Message.module.css";
-import user_logo from "C:/Dev/StudyClick/studyclick/src/image/user_logo.jpg"
+import user_logo from "../../../image/user_logo.jpg"
 const Message = (props) => {
   return (
     <div className={s.ai}>

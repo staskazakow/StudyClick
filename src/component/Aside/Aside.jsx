@@ -3,7 +3,7 @@ import s from './Aside.module.css'
 import { NavLink } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import DialogsContainer from "../Dialogs/DialogsContainer";
-import logo from "C:/Dev/StudyClick/studyclick/src/image/logo.png";
+import logo from "../../image/logo.png";
 const Aside = (props) => {
   const addChat = () => {
     const session_id  = uuidv4();

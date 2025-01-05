@@ -51,7 +51,6 @@ const DialogsReducer = (state = initial_state, action) => {
               dialogs_data: state.dialogs_data.filter(e => e.session_id !== action.id)
             }
             default: 
-            console.log(state)
               return state;
             }
 };

@@ -8,6 +8,7 @@ const Dialog = (props) => {
   const [disabled, setDisabled] = useState(false);
   useEffect(() => {
     props.getHistoryChat(props.session_id);
+    debugger
   }, [props.session_id, props.active]);
   useEffect(() => {
     props.PromptThunk(props.study_field_id);

@@ -1,0 +1,7 @@
+Чтобы запустить проект склонируйте его и пропишите в терминал команды 
+npm i redux-thunk
+npm i redux
+npm i react-router-dom
+npm i react-redux
+npm i axios
+npm i
